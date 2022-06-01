@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template
 import requests
 import json
 from nfl import app
@@ -42,3 +42,15 @@ def division(division_id):
             division = divisions
             
     return render_template('division.html', data=division)
+
+@app.route('/team/<int:team_id>')
+def team(team_id):
+    team_req = requests.get(teams_url)
+    team_data = json.loads(team_req.content)
+    
+    team = {}
+    for teams in team_data:
+        if teams['id'] == team_id:
+            team = teams
+    
+    return render_template('team.html', data=team)
