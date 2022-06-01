@@ -30,3 +30,15 @@ def league(league_id):
             league = leagues
     
     return render_template('league.html', data=league)
+
+@app.route('/division/<int:division_id>')
+def division(division_id):
+    division_req = requests.get(divisions_url)
+    division_data = json.loads(division_req.content)
+    
+    division = {}
+    for divisions in division_data:
+        if divisions['id'] == division_id:
+            division = divisions
+            
+    return render_template('division.html', data=division)
