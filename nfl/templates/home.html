@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        <h2>Leagues</h2>
+        {% for league in league_data %}
+            <p>{{ league.league_name }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        <h2>Divisions</h2>
+        {% for division in division_data %}
+            <p>{{ division.league_name }} : {{ division.division_name }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        <h2>Teams</h2>
+        {% for team in team_data %}
+            <p>{{ team.team_name }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

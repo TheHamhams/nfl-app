@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>{{ data.league_name }}</h1>
+    {% for division in data.divisions %}
+        <p>{{ division }}</p>
+    {% endfor %}
+{% endblock %}
