@@ -1,3 +1,12 @@
+:root
+{
+    --main-black: #0B0C10;
+    --main-dark-gray: #1F2833;
+    --main-gray: #C5C6C7;
+    --main-bright-blue: #66FCF1;
+    --main-dark-blue: #45A29E;
+}
+
 *
 {
     padding: 0;
@@ -7,12 +16,32 @@
 
 body
 {
+    background-color: var(--main-dark-gray);
     font-family: Helvetica;
+    color: var(--main-bright-blue);
 }
+
+a:link  
+{
+    text-decoration: none;
+    color: var(--main-bright-blue);
+    font-weight: bold;
+}
+
+a:visited
+{
+    color:var(--main-bright-blue);
+}
+
+p
+{
+    color:var(--main-bright-blue);
+}
+
 
 .menu-bar
 {
-    background-color: lightblue;
+    background-color: var(--main-black);
     text-align: center;
 }
 
@@ -32,12 +61,12 @@ body
 .menu-bar ul li a
 {
     text-decoration: none;
-    color: black;
+    color: var(--main-bright-blue);;
 }
 
 .menu-bar ul li:hover
 {
-    background: lightcoral;
+    background: var(--main-dark-blue);
     border-radius: 3px;
 }
 
@@ -50,7 +79,7 @@ body
 {
     display: block;
     position: absolute;
-    background-color: lightblue;
+    background-color: var(--main-dark-blue);;
     margin-top: 15px;
     margin-left: -15px;
 }
@@ -76,7 +105,12 @@ body
     border-bottom: none;
 }
 
+.menu-bar ul li:hover .sub-menu-1 li a
+{
+    color: var(--main-black);
+}
+
 .menu-bar ul li:hover .sub-menu-1 li a:hover
 {
-    background: lightcoral;
+    background: var(--main-gray);
 }
