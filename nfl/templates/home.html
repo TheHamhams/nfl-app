@@ -3,21 +3,21 @@
     <div>
         <h2>Leagues</h2>
         {% for league in league_data %}
-            <p>{{ league.league_name }}</p>
+            <p><a href="{{ url_for('league', league_id=league.id) }}">{{ league.league_name }}</a></p>
         {% endfor %}
     </div>
 
     <div>
         <h2>Divisions</h2>
         {% for division in division_data %}
-            <p>{{ division.league_name }} : {{ division.division_name }}</p>
+            <p><a href="{{ url_for('division', division_id=division.id) }}">{{ division.league_name }} : {{ division.division_name }}</a></p>
         {% endfor %}
     </div>
 
     <div>
         <h2>Teams</h2>
         {% for team in team_data %}
-            <p>{{ team.team_name }}</p>
+            <p><a href="{{ url_for('team', team_id=team.id) }}">{{ team.team_name }}</a></p>
         {% endfor %}
     </div>
 {% endblock %}

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,9 +11,42 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> -->
+    <script src="https://kit.fontawesome.com/f4eae7ec5f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    
+        <div class="menu-bar">    
+            <ul>
+                <li><i class="fa-solid fa-house"></i> <a href="{{url_for('home') }}">Home</a></li>
+                <li><i class="fa-solid fa-flag"></i> <a>Leagues</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            {% for league in league_data %}
+                              <li><a href="{{ url_for('league', league_id=league.id) }}">{{ league.league_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li><i class="fa-solid fa-divide"></i> Divisions
+                    <div class="sub-menu-1">
+                        <ul>
+                            {% for division in division_data %}
+                                <li><a href="{{ url_for('division', division_id=division.id) }}">{{ division.league_name }} : {{ division.division_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li><i class="fa-solid fa-football"></i> Teams
+                    <div class="sub-menu-1">
+                        <ul>
+                            {% for team in team_data %}
+                                <li><a href="{{ url_for('team', team_id=team.id) }}">{{ team.team_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     
     {% block content %}
 

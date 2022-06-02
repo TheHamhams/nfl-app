@@ -7,6 +7,17 @@ leagues_url = 'https://hamren-nlf-api.herokuapp.com/leagues'
 divisions_url = 'https://hamren-nlf-api.herokuapp.com/divisions'
 teams_url = 'https://hamren-nlf-api.herokuapp.com/teams'
 
+@app.context_processor
+def get_balance():
+    league_req = requests.get(leagues_url)
+    league_data = json.loads(league_req.content)
+    division_req = requests.get(divisions_url)
+    division_data = json.loads(division_req.content)
+    team_req = requests.get(teams_url)
+    team_data = json.loads(team_req.content)
+    
+    return dict(league_data=league_data,  division_data=division_data, team_data=team_data)
+
 @app.route('/')
 @app.route('/home')
 def home():
