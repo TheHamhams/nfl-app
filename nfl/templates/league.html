@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ data.league_name }}</h1>
-    {% for division in data.divisions %}
-        <p>{{ division }}</p>
-    {% endfor %}
+    <article class="content-section">
+        <div class="text">
+            <h1>{{ data.league_name }} League</h1>
+            <h2>Divisions</h2>
+            {% for division in divisions %}
+                <p><a href="{{ url_for('division', division_id=division.id) }}">{{ division.division_name }}</a></p>
+            {% endfor %}
+        </div>
+    </article>
 {% endblock %}

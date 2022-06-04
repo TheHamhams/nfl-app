@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ data.team_name }}</h1>
-    <h2>League : {{ data.league_name }}</h2>
-    <h2>Division : {{ data.division_name }}</h2>
-    <h2>City : {{ data.city }}</h2>
-    
+    <article class="content-section">
+        <h1>{{ data.team_name }}</h1>
+        <h2>League : <a href="{{ url_for('league', league_id=data.league_id) }}">{{ data.league_name }}</a></h2>
+        <h2>Division : <a href="{{ url_for('division', division_id=data.division_id) }}">{{ data.division_name }}</a></h2>
+        <h2>City : {{ data.city }}</h2>
+    </article>
 {% endblock %}
